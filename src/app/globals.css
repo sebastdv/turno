@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+/* Filo: verde botella de la marca, papel claro, naranja de señal para actuar
+   (con texto oscuro: el blanco sobre naranja no alcanza el contraste). */
+:root {
+  --paper: #f4f5f1;
+  --surface: #ffffff;
+  --ink: #15191a;
+  --muted: #59625f;
+  --line: #d6dbd5;
+  --brand: #0f3b30;
+  --brand-2: #164a3d;
+  --on-brand: #eaf3ee;
+  --on-brand-muted: #a9c4b8;
+  --signal: #f26a21;
+  --on-signal: #1d0e05;
+  --signal-soft: #fde6d8;
+  --ok: #1d7448;
+  --ok-soft: #dff1e6;
+  --warn: #8f5a00;
+  --warn-soft: #fbefd5;
+  --danger: #b42318;
+  --danger-soft: #fbe3e0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0e1513;
+    --surface: #16201d;
+    --ink: #e7ede9;
+    --muted: #9aa8a2;
+    --line: #29352f;
+    --brand: #0a2a22;
+    --brand-2: #10362c;
+    --on-brand: #e3f0e9;
+    --on-brand-muted: #8fb0a2;
+    --signal: #ff8a4c;
+    --on-signal: #1d0e05;
+    --signal-soft: #3b2417;
+    --ok: #6fd39b;
+    --ok-soft: #13301f;
+    --warn: #f2bd5a;
+    --warn-soft: #382a10;
+    --danger: #ff8d85;
+    --danger-soft: #3a1714;
+  }
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-brand: var(--brand);
+  --color-brand-2: var(--brand-2);
+  --color-on-brand: var(--on-brand);
+  --color-on-brand-muted: var(--on-brand-muted);
+  --color-signal: var(--signal);
+  --color-on-signal: var(--on-signal);
+  --color-signal-soft: var(--signal-soft);
+  --color-ok: var(--ok);
+  --color-ok-soft: var(--ok-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --font-sans: "Figtree Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Big Shoulders Display Variable", "Arial Narrow", sans-serif;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 2px;
+}
+
+/* El ticket del turno: muescas a los lados, como un tiquete arrancado. */
+.ticket {
+  --notch: 14px;
+  mask:
+    radial-gradient(circle var(--notch) at 0 var(--cut, 62%), #0000 98%, #000) left / 51% 100% no-repeat,
+    radial-gradient(circle var(--notch) at 100% var(--cut, 62%), #0000 98%, #000) right / 51% 100% no-repeat;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}

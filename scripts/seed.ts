@@ -7,6 +7,11 @@ import { seedDemo } from "../src/db/seed";
 
 const url = process.env.DATABASE_URL;
 if (!url) {
+  // `--if-configured` (lo usa vercel-build): un build sin base, como un preview, sigue de largo.
+  if (process.argv.includes("--if-configured")) {
+    console.log("Sin DATABASE_URL: se omite este paso.");
+    process.exit(0);
+  }
   console.error("Falta DATABASE_URL.");
   process.exit(1);
 }
